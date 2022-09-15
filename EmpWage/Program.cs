@@ -1,11 +1,11 @@
-﻿//Already using class since starting
+﻿
 using EmpWage;
-Console.WriteLine("Welcome to employee wage computation program");
-/*IEmployeeWageForCompany*/
-Wage comp = new Wage();
-comp.AddDetails("TATA", 200, 20, 8);
-comp.AddDetails("IBM", 300, 25, 9);
-comp.AddDetails("TCS", 200, 25, 9);
-comp.AddDetails("Mahindra", 280, 20, 8);
-comp.AddDetails("L&T", 150, 27, 9);
+
+Console.WriteLine("Welcome to Employee Wage Computation program");
+IEmployeeWageForCompany comp = new Wage();
+comp.AddDetails("TATA", 200, 20, 100);
+comp.AddDetails("IBM", 300, 25, 100);
+comp.AddDetails("TCS", 200, 25, 100);
+comp.AddDetails("Mahindra", 280, 20, 100);
+comp.AddDetails("L&T", 150, 27, 100);
 comp.perCompany();

@@ -11,23 +11,22 @@ namespace EmpWage
         static int day_hr;
         List<ParticularCompany> companyDetailsList;        //List for storing the companies with a company as an object in every element of the array
         public int ToMonWag = 0;                  //total Monthly working wage
-        int Company_number = 0;
         public Wage()
         {
-            this.companyDetailsList = new List<ParticularCompany>();       //no. of companies taken is 5
+            this.companyDetailsList = new List<ParticularCompany>();       //no. of companies taken in the list
         }
 
         public void AddDetails(String company, int WaPhr, int max_workDays, int max_workHrs)
         {
             ParticularCompany NewCompany = new ParticularCompany(company, WaPhr, max_workDays, max_workHrs);
-            companyDetailsList.Add(NewCompany);
+            companyDetailsList.Add(NewCompany);                                                             //every new object stored in the list
         }
 
         public void perCompany()                //Per company Employee Wage ......Calling the TWage method in ParticularCompany class
         {
             foreach (var NewCompany in companyDetailsList)
             {
-                Console.WriteLine($"Total wage for the company {NewCompany.company} is ");
+                Console.WriteLine(NewCompany.company + " - ");
                 NewCompany.TWage(compute(NewCompany));
             }
         }
@@ -47,6 +46,7 @@ namespace EmpWage
                     day_hr = 0;
                     break;
             }
+            Console.WriteLine(WaPhr * day_hr);
             return (WaPhr * day_hr);
         }
         public int compute(ParticularCompany Company)                //for calculating the monthly wage of an employee for each company
@@ -56,6 +56,7 @@ namespace EmpWage
 
             while (days < Company.max_workDays && totHrs < Company.max_workHrs)
             {
+                Console.Write("Wage for the day " + days + " is = ");
                 ToMonWag = ToMonWag + (wage(Company.WaPhr));
                 days++;
                 totHrs = totHrs + day_hr;
@@ -64,6 +65,7 @@ namespace EmpWage
                     ToMonWag = ToMonWag - ((totHrs - Company.max_workHrs) * Company.WaPhr);
                 }
             }
+            Console.WriteLine("Total Wage for the company is = " + ToMonWag);
             return ToMonWag;
         }
 
