@@ -1,11 +1,8 @@
-﻿namespace EmpWage
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-           Emp emp = new Emp();
-            emp.Wage();
-        }
-    }
-}
+﻿//Already using class since starting
+
+using EmpWage;
+
+Console.WriteLine("Welcome to employee wage computation program");
+Emp emp = new Emp();
+emp.Wage("TCS", 20);
+emp.Wage("Zoho", 30);
