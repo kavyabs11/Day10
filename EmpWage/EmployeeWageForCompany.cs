@@ -1,10 +1,10 @@
-﻿using System;
+﻿using EmpWage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace EmpWage
+namespace EmployeeWage
 {
     public interface IEmployeeWageForCompany
     {
@@ -12,5 +12,6 @@ namespace EmpWage
         public void perCompany();
         public int wage(int wage);
         public int compute(ParticularCompany company);
+        public void QuerrySolved(String CheckCompany);
     }
 }
