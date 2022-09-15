@@ -8,26 +8,34 @@ namespace EmpWage
 {
     internal class Emp
     {
-       
-            public int fullTime = 1;
-        int empHr = 0;
-        int empWage = 0;
-        public void Wage(string comp, int wagePerHr)
+
+        public int fullTime = 1;
+        public int partTime = 2;
+        public int empHr = 0;
+        public int empWage = 0;
+        public int totalWage = 0;
+        public void Wage(string comp, int wagePerHR, int totalWorkingdays, int totalWorkingHR)
         {
-            Random random = new Random();
-            int attendCheck = random.Next(0, 2);
-            if (attendCheck == fullTime)
+            for (int i = 0; i < totalWorkingdays; i++)
             {
-                empHr = 8;
-                Console.WriteLine($"The Employee is present");
+                //new operator creates an object from the class by allocating memory for the new object and returning a reference to thet memory
+                Random random = new Random();
+                int attendCheck = random.Next(0, 3);
+                if (attendCheck == fullTime)
+                {
+                    empHr = 8;
+                }
+                else if (attendCheck == partTime)
+                {
+                    empHr = 4;
+                }
+                else
+                {
+                    empHr = 0;
+                }
+                empWage = empHr * wagePerHR;
+                totalWage = totalWage + empWage;
             }
-            else
-            {
-                empHr = 0;
-                Console.WriteLine($"The Employee wage is absent");
-            }
-            empWage = empHr * wagePerHr;
-            Console.WriteLine($"The Empployee wage is {empWage}");
         }
     }
 }
