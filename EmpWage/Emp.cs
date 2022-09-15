@@ -8,35 +8,40 @@ namespace EmpWage
 {
     internal class Emp
     {
-       
-        
-            public void Wage()
+        public void Wage()
             {
-                const int fullTime = 1;
-                const int partTime = 2;
+                int fullTime = 1;
+                int partTime = 2;
                 int empHr = 0;
                 int empWage = 0;
-                int wagePerHr = 20;
-                //new operator creates an object from the class by allocating memory for the new object and returning a reference to thet memory
-                Random random = new Random();
-                int attendCheck = random.Next(0, 3);
-                switch (attendCheck)
+                int wagePerHR = 20;
+                int totalWorkingdays = 20;
+                int totalWage = 0;
+                for (int i = 0; i < totalWorkingdays; i++)
                 {
-                    case fullTime:
+                    //new operator creates an object from the class by allocating memory for the new object and returning a reference to thet memory
+                    Random random = new Random();
+                    int attendCheck = random.Next(0, 3);
+                    if (attendCheck == fullTime)
+                    {
                         empHr = 8;
-                        Console.WriteLine("Full time employee");
-                        break;
-                    case partTime:
+                        Console.WriteLine($"Full time employee");
+                    }
+                    else if (attendCheck == partTime)
+                    {
                         empHr = 4;
                         Console.WriteLine("Part time employee");
-                        break;
-                    default:
+                    }
+                    else
+                    {
                         empHr = 0;
-                        Console.WriteLine("The Employee is absent");
-                        break;
+                        Console.WriteLine("The employee is absent");
+                    }
+                    empWage = empHr * wagePerHR;
+                    Console.WriteLine($"Employee wage is {empWage}");
+                    totalWage = totalWage + empWage;
                 }
-                empWage = empHr * wagePerHr;
-                Console.WriteLine($"The Employee wage is {empWage}");
+                Console.WriteLine($"Total wage for 20 working days is  {totalWage}");
             }
         }
 }
