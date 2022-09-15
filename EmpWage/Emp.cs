@@ -11,16 +11,24 @@ namespace EmpWage
         public void Wage()
         {
             int fullTime = 1;
-            Random rnd = new Random();
-            int attendCheck = rnd.Next(0, 2);
+            int empHr = 0;
+            int wagePerHr = 20;
+            int empWage = 0;
+            //new operator creates an object from the class by allocating memory for the new object and returning reference to thet memory
+            Random random = new Random();
+            int attendCheck = random.Next(0, 2);
             if (attendCheck == fullTime)
             {
-                Console.WriteLine("The Employee is present");
+                empHr = 8;
+                Console.WriteLine($"The Employee is present");
             }
             else
             {
-                Console.WriteLine("The Employee is absent");
+                empHr = 0;
+                Console.WriteLine($"The Employee wage is absent");
             }
+            empWage = empHr * wagePerHr;
+            Console.WriteLine($"The Empployee wage is {empWage}");
         }
     }
 }
